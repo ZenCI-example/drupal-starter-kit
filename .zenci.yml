@@ -19,7 +19,7 @@ deploy:
     scripts:
       init: '{deploy_dir}/scripts/deploy_init.sh'
       after: '{deploy_dir}/scripts/deploy_update.sh'
-pull_request:
+  pull_request:
     server: qa.drupal7.examples.zen.ci
     username: test
     dir: '{home}/github/{repo_owner}/{repo_name}/pr/{pr_number}'
