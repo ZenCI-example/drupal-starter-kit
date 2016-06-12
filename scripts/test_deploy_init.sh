@@ -20,6 +20,10 @@ echo "Full site path: $DOCROOT"
 # Go to domain directory.
 cd $DOCROOT
 
+# enable simpletest
+
+drush en -y simpletest
+
 echo "Linking modules from $ZENCI_DEPLOY_DIR"
 
 mkdir -p $DOCROOT/sites/all/modules/contrib
