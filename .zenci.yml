@@ -1,5 +1,5 @@
 deploy:
-  branch:
+  master:
     server: drupal7.examples.zen.ci
     username: zenci
     dir: '{home}/github/{repo_owner}/{repo_name}/branch/{branch}'
@@ -19,6 +19,27 @@ deploy:
     scripts:
       init: '{deploy_dir}/scripts/deploy_init.sh'
       after: '{deploy_dir}/scripts/deploy_update.sh'
+  branch:
+    server: qa.drupal7.examples.zen.ci
+    username: test
+    dir: '{home}/github/{repo_owner}/{repo_name}/branch/{branch}'
+    env_vars:
+      docroot: '{home}/domains/{branch}.qa.drupal7.examples.zen.ci'
+      domain: '{branch}.qa.drupal7.examples.zen.ci'
+      database_name: 'test_{branch}'
+      database_user: 'test_{branch}'
+      database_pass: 'test_{branch}'
+      account_user: admin
+      account_mail: admin@zen.ci
+      account_pass: REPLACE_WITH_ADMIN_PASSWORD
+      site_mail: noreply@zen.ci
+      site_name: '{branch} QA site for {repo_owner}/{repo_name}'
+      default_theme: "bootstrap_lite"
+      enable_devel: "yes"
+    scripts:
+      init: '{deploy_dir}/scripts/qa_deploy_init.sh'
+      after: '{deploy_dir}/scripts/deploy_update.sh'
+      remove: '{deploy_dir}/scripts/qa_deploy_remove.sh'
   pull_request:
     server: qa.drupal7.examples.zen.ci
     username: test
