@@ -77,7 +77,7 @@ test:
         account_pass: REPLACE_WITH_ADMIN_PASSWORD
         site_mail: noreply@zen.ci
         site_name: 'branch {branch} tests for {repo_owner}/{repo_name}'
-        tests: '--directory sites/all/custom/views'
+        tests: '--directory sites/all/custom/modules/views'
       scripts:
         init: '{deploy_dir}/scripts/test_deploy_init.sh'
       tests:
@@ -96,7 +96,7 @@ test:
         account_pass: REPLACE_WITH_ADMIN_PASSWORD
         site_mail: noreply@zen.ci
         site_name: 'pr {pr_number} branch {branch} tests for {repo_owner}/{repo_name}'
-        tests: '--directory sites/all/custom/views'
+        tests: '--directory sites/all/modules/custom/views'
       scripts:
         init: '{deploy_dir}/scripts/test_deploy_init.sh'
       tests:
