@@ -36,6 +36,8 @@ if(empty($tests)) {
 
 $cmd = 'php ' . $deploy_dir . '/scripts/run-tests.sh --url http://localhost --verbose --concurrency 10 --color --summary /tmp/summary ' .$tests;
 
+echo "CMD:" . $cmd ."\n";
+
 $proc = popen($cmd, 'r');
 
 while (!feof($proc)) {
